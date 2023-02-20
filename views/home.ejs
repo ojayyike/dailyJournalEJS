@@ -1,0 +1,20 @@
+<%- include('partials/header'); %>
+<body>
+  <div class="container-fluid">
+    <h1>Home</h1>
+    <p><%=homeStartingContent%></p>
+    <!-- 
+      <% for (var i=0; i < journalPosts.length; i++) { %>
+        <h1><%=journalPosts[i].title%></h1>
+        <p><%=journalPosts[i].postText%></p>
+      <% } %> -->
+    <% journalPosts.forEach((post) => { %>
+    <h1><%=post.title%></h1>
+    <% var text = post.postText %>
+    <% var length = 100 %>
+    <%var trim = text.substring(0,length) + "..." %>
+    <p><%=trim%> <a href="/post/<%=post.id%>">Read More</a></p>
+    <%})%>
+  </div>
+</body>
+<footer><%- include('partials/footer'); %></footer>
